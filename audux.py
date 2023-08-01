@@ -2,8 +2,8 @@
 import os
 import math
 import numpy
-import pygame
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
+import pygame
 import nltk
 from nltk.stem import WordNetLemmatizer
 l = WordNetLemmatizer()
