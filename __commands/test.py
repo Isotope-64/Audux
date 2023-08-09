@@ -4,7 +4,7 @@ from nltk.stem import WordNetLemmatizer
 stop_words = set(stopwords.words("english")) # <-- this is a bad list of words
 l = WordNetLemmatizer()
 
-def fnc(args):
+def fnc(args : list):
     test_quote = "The friends of DeSoto love scarves." if len(args) <= 0 else "".join([i.val + " " for i in args])
     #  ^^^^ the quote chosen to test tokenizing
     q_words = nltk.tokenize.word_tokenize(test_quote)

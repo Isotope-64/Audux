@@ -22,6 +22,7 @@ class Word():
         #We then need to access from the list^
         self.val = l.lemmatize(string) # --> the root of the word. This is typically the useful bit. E.g cases->case worst->bad
         self.type = tagged_word[1] # --> the part of speech. E.g adjective, noun
+    def __str__(self) -> str: return str(self.val)
 
 def interpret_command(cmd : Word, args : list = []):
     if cmd.val in files:
