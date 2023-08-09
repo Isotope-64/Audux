@@ -1,7 +1,7 @@
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-stop_words = set(stopwords.words("english"))
+stop_words = set(stopwords.words("english")) # <-- this is a bad list of words
 l = WordNetLemmatizer()
 
 def fnc(args):
@@ -16,6 +16,7 @@ def fnc(args):
     lemmatized_list = [l.lemmatize(word) for word in q_words]
     #  ^^^^ converts each of the words to their lemmas
 
+    #---Test Prints---
     print("Test quote     : ", test_quote, "\n")
     print("Filtered list  : ", filtered_list, "\n")
     print("Tagged list    : ", tagged_list, "\n")
