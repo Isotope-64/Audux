@@ -1,2 +1,5 @@
 __pycache__\
-__commands\__pycache__
+__commands\__pycache__\
+
+mic_testing.py
+harvard.wav
