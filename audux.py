@@ -7,6 +7,7 @@ l = _l.WordNetLemmatizer()
 c = RegexpParser("NP: {<DT>?<JJ>*<NN>}")
 import speech_recognition as sr
 r = sr.Recognizer()
+run = True
 
 temp_voice_command = sr.AudioFile('say hello.wav')
 with temp_voice_command as source: audio = r.record(source)
@@ -28,8 +29,15 @@ def interpret_command(cmd : Word, args : list = []):
         command_file = import_module("__commands." + cmd.val)
         command_file.fnc(args)
 
-while (cmd := input("<:: ")) != "":
-    if cmd == "voice": cmd = r.recognize_google(audio)
+
+while run:
+    #if cmd == "voice": cmd = r.recognize_google(audio)
+    mic = sr.Microphone()
+    print("### Speak Command ###")
+    with mic as source: cmd = r.listen(source)
+    cmd = r.recognize_google(cmd)
+    print("## " + cmd)
+    del mic
     
     # loops infintely, assigning cmd to the user input. If the user inputs nothing, the loop breaks
     words = tokenize.word_tokenize(cmd) # --> separates the string into words
